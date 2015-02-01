@@ -77,7 +77,13 @@ Tested on:
 
 ### Step #1 - Add the repository {#yum-add-the-repository}
 
-Write the following content to `/etc/yum.repos.d/sensu.repo`.
+Use the following command...
+
+~~~ shell
+sudo printf "[sensu]\nname=sensu-main\nbaseurl=http://repos.sensuapp.org/yum/el/\$releasever/\$basearch/\ngpgcheck=0\nenabled=1\n" > /etc/yum.repos.d/sensu.repo
+~~~
+
+...to write the following content to `/etc/yum.repos.d/sensu.repo`.
 
 Main repository (stable).
 
@@ -89,7 +95,15 @@ gpgcheck=0
 enabled=1
 ~~~
 
-**Or** the **unstable** repository.
+**Or** for the **unstable** repository use the following command...
+
+~~~ shell
+sudo printf "[sensu]\nname=sensu-unstable\nbaseurl=http://repos.sensuapp.org/yum-unstable/el/\$releasever/\$basearch/\ngpgcheck=0\nenabled=1\n" > /etc/yum.repos.d/sensu.repo
+~~~
+
+...to write the following content to `/etc/yum.repos.d/sensu.repo`.
+
+**Unstable** repository
 
 ~~~ shell
 [sensu-unstable]
